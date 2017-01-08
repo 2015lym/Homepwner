@@ -1,4 +1,4 @@
-创建于：2017.1.8 Lym
+最新更新：2017.1.8 Lym
 ---
     1.优化程序结构，YMItemStore和YMImageStore换为dispath_once()创建
 
