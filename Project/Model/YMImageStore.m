@@ -16,22 +16,26 @@
 
 @implementation YMImageStore
 
-+ (instancetype)sharedStore {
++ (instancetype)sharedStore
+{
     static YMImageStore *sharedStore = nil;
-    if (!sharedStore) {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
         sharedStore = [[self alloc] initPrivate];
-    }
+    });
     return sharedStore;
 }
 
-- (instancetype)init {
+- (instancetype)init
+{
     @throw [NSException exceptionWithName:@"Singleton"
                                    reason:@"Use + [YMItemStore sharedStore]"
                                  userInfo:nil];
     return nil;
 }
 
-- (instancetype)initPrivate {
+- (instancetype)initPrivate
+{
     self = [super init];
     if (self) {
         _dictionary = [[NSMutableDictionary alloc] init];
@@ -39,15 +43,18 @@
     return self;
 }
 
-- (void)setImage:(UIImage *)image forKey:(NSString *)key {
+- (void)setImage:(UIImage *)image forKey:(NSString *)key
+{
     [self.dictionary setObject:image forKey:key];
 }
 
-- (UIImage *)imageForKey:(NSString *)key {
+- (UIImage *)imageForKey:(NSString *)key
+{
     return [self.dictionary objectForKey:key];
 }
 
-- (void)deleteImageForKey:(NSString *)key {
+- (void)deleteImageForKey:(NSString *)key
+{
     if (!key) {
         return;
     }

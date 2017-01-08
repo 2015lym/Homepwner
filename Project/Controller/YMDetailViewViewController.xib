@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YMDetailViewViewController">
             <connections>
+                <outlet property="cameraButton" destination="7tU-Ug-AYp" id="Uc6-EH-Npr"/>
                 <outlet property="dateLabel" destination="Q6a-29-5nI" id="AdE-hZ-JXo"/>
                 <outlet property="imageView" destination="luR-ug-nny" id="FTM-ej-bM5"/>
                 <outlet property="nameField" destination="yPd-6q-6Pm" id="hxF-g7-mKe"/>

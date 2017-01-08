@@ -10,7 +10,8 @@
 
 @implementation YMItem
 
-+ (instancetype)randomItem {
++ (instancetype)randomItem
+{
     NSArray *randomAdjectiveList = @[@"Red", @"Green", @"Blue"];
     NSArray *randomNounList = @[@"Book", @"Pen", @"Mac"];
     NSInteger adjectiveIndex = arc4random() % [randomAdjectiveList count];
@@ -37,7 +38,8 @@
 
 - (instancetype)initWithItemName:(NSString *)name
                   valueInDollars:(int)value
-                    serialNumber:(NSString *)sNumber {
+                    serialNumber:(NSString *)sNumber
+{
     self = [super init];
     if (self) {
         _itemName = name;
@@ -53,17 +55,42 @@
     return self;
 }
 
-- (instancetype)initWithItemName:(NSString *)name {
+- (instancetype)initWithItemName:(NSString *)name
+{
     return [self initWithItemName:name
                    valueInDollars:0
                      serialNumber:@""];
 }
 
-- (instancetype)init {
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self) {
+        _itemName = [aDecoder decodeObjectForKey:@"itemName"];
+        _serialNumber = [aDecoder decodeObjectForKey:@"serialNumber"];
+        _dateCreated = [aDecoder decodeObjectForKey:@"dateCreated"];
+        _itemKey = [aDecoder decodeObjectForKey:@"itemKey"];
+        _valueInDollars = [aDecoder decodeIntForKey:@"valueInDollars"];
+    }
+    return self;
+}
+
+- (instancetype)init
+{
     return [self initWithItemName:@"Item"];
 }
 
-- (NSString *)description {
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.itemName forKey:@"itemName"];
+    [aCoder encodeObject:self.serialNumber forKey:@"serialNumber"];
+    [aCoder encodeObject:self.dateCreated forKey:@"dateCreated"];
+    [aCoder encodeObject:self.itemKey forKey:@"itemKey"];
+    [aCoder encodeInt:self.valueInDollars forKey:@"valueInDollars"];
+}
+
+- (NSString *)description
+{
     NSString *descriptionString = [NSString stringWithFormat:@"%@(%@):Worth $%d, recorded on %@",
                                    self.itemName,
                                    self.serialNumber,
@@ -72,7 +99,8 @@
     return descriptionString;
 }
 
-- (void)dealloc {
+- (void)dealloc
+{
     NSLog(@"Destroyed: %@", self);
 }
 

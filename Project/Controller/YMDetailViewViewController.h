@@ -11,6 +11,10 @@
 
 @interface YMDetailViewViewController : UIViewController
 
+- (instancetype)initForNewItem:(BOOL)isNew;
+
 @property (strong, nonatomic) YMItem *item;
+
+@property (copy, nonatomic) void (^dismissBlock)(void);
 
 @end
