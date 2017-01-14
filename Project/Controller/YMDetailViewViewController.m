@@ -212,6 +212,8 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     
+    [self.item setThumbnail:image];
+    
     [[YMImageStore sharedStore] setImage:image forKey:self.item.itemKey];
     
     self.imageView.image = image;

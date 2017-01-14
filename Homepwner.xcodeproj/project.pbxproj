@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3874D2681E2A423600DE2BB5 /* YMItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3874D2661E2A423600DE2BB5 /* YMItemCell.m */; };
+		3874D2691E2A423600DE2BB5 /* YMItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3874D2671E2A423600DE2BB5 /* YMItemCell.xib */; };
+		3874D26C1E2A556B00DE2BB5 /* YMImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3874D26B1E2A556B00DE2BB5 /* YMImageViewController.m */; };
 		38C02AD11E20C79200D7B55E /* YMDetailViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C02AC61E20C79200D7B55E /* YMDetailViewViewController.m */; };
 		38C02AD21E20C79200D7B55E /* YMDetailViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38C02AC71E20C79200D7B55E /* YMDetailViewViewController.xib */; };
 		38C02AD31E20C79200D7B55E /* YMItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C02AC91E20C79200D7B55E /* YMItemsViewController.m */; };
@@ -22,6 +25,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3874D2651E2A423600DE2BB5 /* YMItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMItemCell.h; sourceTree = "<group>"; };
+		3874D2661E2A423600DE2BB5 /* YMItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMItemCell.m; sourceTree = "<group>"; };
+		3874D2671E2A423600DE2BB5 /* YMItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YMItemCell.xib; sourceTree = "<group>"; };
+		3874D26A1E2A556B00DE2BB5 /* YMImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMImageViewController.h; sourceTree = "<group>"; };
+		3874D26B1E2A556B00DE2BB5 /* YMImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMImageViewController.m; sourceTree = "<group>"; };
 		38C02AC51E20C79200D7B55E /* YMDetailViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMDetailViewViewController.h; sourceTree = "<group>"; };
 		38C02AC61E20C79200D7B55E /* YMDetailViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMDetailViewViewController.m; sourceTree = "<group>"; };
 		38C02AC71E20C79200D7B55E /* YMDetailViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YMDetailViewViewController.xib; sourceTree = "<group>"; };
@@ -56,6 +64,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3874D2641E2A420B00DE2BB5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3874D2651E2A423600DE2BB5 /* YMItemCell.h */,
+				3874D2661E2A423600DE2BB5 /* YMItemCell.m */,
+				3874D2671E2A423600DE2BB5 /* YMItemCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		38C02AC41E20C79200D7B55E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +82,8 @@
 				38C02AC71E20C79200D7B55E /* YMDetailViewViewController.xib */,
 				38C02AC81E20C79200D7B55E /* YMItemsViewController.h */,
 				38C02AC91E20C79200D7B55E /* YMItemsViewController.m */,
+				3874D26A1E2A556B00DE2BB5 /* YMImageViewController.h */,
+				3874D26B1E2A556B00DE2BB5 /* YMImageViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -127,6 +147,7 @@
 			children = (
 				38C02AC41E20C79200D7B55E /* Controller */,
 				38C02ACA1E20C79200D7B55E /* Model */,
+				3874D2641E2A420B00DE2BB5 /* View */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -195,6 +216,7 @@
 				38C60AEB1DFD971B00EE7E5C /* Assets.xcassets in Resources */,
 				38C02AD21E20C79200D7B55E /* YMDetailViewViewController.xib in Resources */,
 				38C60AE91DFD971B00EE7E5C /* Main.storyboard in Resources */,
+				3874D2691E2A423600DE2BB5 /* YMItemCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,7 +229,9 @@
 			files = (
 				38C02AD51E20C79200D7B55E /* YMItem.m in Sources */,
 				38C60AE61DFD971B00EE7E5C /* ViewController.m in Sources */,
+				3874D26C1E2A556B00DE2BB5 /* YMImageViewController.m in Sources */,
 				38C02AD61E20C79200D7B55E /* YMItemStore.m in Sources */,
+				3874D2681E2A423600DE2BB5 /* YMItemCell.m in Sources */,
 				38C02AD41E20C79200D7B55E /* YMImageStore.m in Sources */,
 				38C60AE31DFD971B00EE7E5C /* AppDelegate.m in Sources */,
 				38C02AD31E20C79200D7B55E /* YMItemsViewController.m in Sources */,

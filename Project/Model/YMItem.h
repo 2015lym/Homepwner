@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class UIImage;
 
 @interface YMItem : NSObject<NSCoding>
 
@@ -16,7 +17,10 @@
 @property (strong, nonatomic, readonly) NSDate *dateCreated;
 
 @property (copy, nonatomic) NSString *itemKey;
+@property (strong, nonatomic) UIImage *thumbnail;
 
 + (instancetype)randomItem;
+
+- (void)setThumbnailFromImage:(UIImage *)image;
 
 @end

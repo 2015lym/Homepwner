@@ -10,8 +10,13 @@
 #import "YMItemStore.h"
 #import "YMItem.h"
 #import "YMDetailViewViewController.h"
+#import "YMItemCell.h"
+#import "YMImageStore.h"
+#import "YMImageViewController.h"
 
-@interface YMItemsViewController ()
+@interface YMItemsViewController ()<UIPopoverControllerDelegate>
+
+@property (strong, nonatomic) UIPopoverController *imagePopover;
 
 @end
 
@@ -28,8 +33,12 @@
 {
     [super viewDidLoad];
     
-    [self.tableView registerClass:[UITableViewCell class]
-           forCellReuseIdentifier:@"UITableViewCell"];
+    //创建UINib对象，该对象代表包含了YMItemCell的NIB文件
+    UINib *nib = [UINib nibWithNibName:@"YMItemCell" bundle:nil];
+    
+    //通过UINib对象注册相应的NIB文件
+    [self.tableView registerNib:nib
+         forCellReuseIdentifier:@"YMItemCell"];
     
 }
 
@@ -92,13 +101,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView
-                             dequeueReusableCellWithIdentifier:@"UITableViewCell"
-                             forIndexPath:indexPath];
+    YMItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"YMItemCell"
+                                                       forIndexPath:indexPath];
+    
     NSArray *items = [[YMItemStore sharedStore] allItems];
     YMItem *item = items[indexPath.row];
     
-    cell.textLabel.text = [item description];
+    cell.nameLabel.text = item.itemName;
+    cell.serialNumberLabel.text = item.serialNumber;
+    cell.valueLabel.text = [NSString stringWithFormat:@"$%d", item.valueInDollars];
+    cell.thumbnailView.image = item.thumbnail;
+    
+    cell.actionBlock = ^{
+        NSLog(@"Going to show image for %@", item);
+    };
     
     return cell;
 }
